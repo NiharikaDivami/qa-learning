@@ -1,0 +1,35 @@
+Scenario ID,Module,Scenario,Type,Priority
+TS_AUTH_01,Authentication,Verify valid vendor login with correct credentials,Functional,High
+TS_AUTH_02,Authentication,Verify login fails with invalid credentials,Negative,High
+TS_AUTH_03,Authentication,Verify session timeout after inactivity,Functional,Medium
+TS_AUTH_04,Authentication,Verify password reset workflow,Functional,Medium
+TS_AUTH_05,Authentication,Verify lockout after repeated failed attempts,Security,High
+TS_UPL_01,Invoice Upload,Submit valid invoice linked to existing PO,Functional,High
+TS_UPL_02,Invoice Upload,Submit invoice with missing mandatory fields,Negative,High
+TS_UPL_03,Invoice Upload,Submit invoice with unsupported file format,Negative,Medium
+TS_UPL_04,Invoice Upload,Submit invoice exceeding file size limit,Negative,Medium
+TS_UPL_05,Invoice Upload,Submit invoice with invoice amount greater than PO amount,Business Rule,High
+TS_UPL_06,Invoice Upload,Submit duplicate invoice number for same vendor,Business Rule,High
+TS_UPL_07,Invoice Upload,Submit invoice against closed/cancelled PO,Business Rule,High
+TS_PROC_01,Invoice Processing,AP user approves a submitted invoice,Functional,High
+TS_PROC_02,Invoice Processing,AP user rejects a submitted invoice with reason,Functional,High
+TS_PROC_03,Invoice Processing,Vendor role cannot approve invoices,Authorization,Critical
+TS_PROC_04,Invoice Processing,Concurrent approval attempts by two AP users,Concurrency,High
+TS_PROC_05,Invoice Processing,Rejected invoice can be modified and resubmitted,Workflow,Medium
+TS_PROC_06,Invoice Processing,Rejected invoice does not progress to payment stage,Workflow,Critical
+TS_NOTIF_01,Notifications,Vendor receives email on invoice submission,Integration,Medium
+TS_NOTIF_02,Notifications,Vendor receives email on approval,Integration,Medium
+TS_NOTIF_03,Notifications,Vendor receives email on rejection with reason,Integration,Medium
+TS_NOTIF_04,Notifications,System retries failed email delivery,Resilience,Medium
+TS_RPT_01,Reporting,Generate monthly invoice report for finance,Functional,Medium
+TS_RPT_02,Reporting,Report counts match underlying database records,Data Accuracy,High
+TS_RPT_03,Reporting,Filter report by status (approved/rejected/pending),Functional,Medium
+TS_SEC_01,Security,Vendor A cannot view Vendor B invoices,Authorization,Critical
+TS_SEC_02,Security,Unauthorized API access is rejected with 401/403,Security,Critical
+TS_SEC_03,Security,Uploaded files are scanned for malicious content,Security,High
+TS_SEC_04,Security,Session tokens expire and cannot be reused,Security,High
+TS_API_01,API,Invoice creation endpoint returns 201 on success,API,High
+TS_API_02,API,Invoice creation endpoint returns 400 on invalid payload,API,High
+TS_API_03,API,Invoice list endpoint enforces vendor scoping,API,Critical
+TS_DATA_01,Data,Invoice record persists with correct vendor and PO mapping,Data Integrity,High
+TS_DATA_02,Data,Status transitions are recorded in audit log,Data Integrity,High
