@@ -38,6 +38,3 @@ Recommendations to harden the platform, grouped by priority. Each suggestion not
 
 - **Async report generation with email-when-ready for large reports**
   Avoids timeouts on full-year reports.
-
-- **Emit metrics for invoice lifecycle and notification success rate**
-  Enables proactive detection of regressions before users notice.
