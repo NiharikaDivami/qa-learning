@@ -1,0 +1,23 @@
+Requirement ID,Requirement Description,Source,Scenario ID,Test Case IDs,Defect IDs,Coverage Status
+REQ_01,Vendors must authenticate before performing actions,Working Assumptions,TS_AUTH_01;TS_AUTH_02;TS_AUTH_03,TC_AUTH_001;TC_AUTH_002;TC_AUTH_003;TC_AUTH_005;TC_AUTH_007;TC_API_001;TC_API_002,DEF_006,Covered
+REQ_02,Account lockout / brute-force protection,Risk Assessment,TS_AUTH_05,TC_AUTH_004;TC_SEC_004,,Covered
+REQ_03,Password reset workflow,System Overview,TS_AUTH_04,TC_AUTH_006,DEF_010,Covered
+REQ_04,Vendors upload invoices linked to POs,Functional Flow,TS_UPL_01;TS_UPL_02;TS_UPL_07,TC_UPL_001;TC_UPL_002;TC_UPL_008;TC_API_003;TC_API_004,,Covered
+REQ_05,Supported file formats and size limits,Requirement Gaps,TS_UPL_03;TS_UPL_04,TC_UPL_004;TC_UPL_005,,Gap — exact list pending
+REQ_06,Duplicate invoice prevention,Risk Assessment,TS_UPL_06,TC_UPL_007;TC_EDGE_001;DB_006,DEF_001,Covered
+REQ_07,Invoice amount must respect PO,Requirement Gaps,TS_UPL_05,TC_UPL_006,,Gap — overage policy pending
+REQ_08,AP approves or rejects invoices,Functional Flow,TS_PROC_01;TS_PROC_02,TC_PROC_001;TC_PROC_002;TC_PROC_003;TC_API_009,,Covered
+REQ_09,Only AP can act on approvals,User Roles,TS_PROC_03,TC_PROC_004;TC_API_008;TC_SEC_001,,Covered
+REQ_10,Rejected invoices do not proceed to payment,Risk Assessment,TS_PROC_06,TC_PROC_006,DEF_002,Covered
+REQ_11,Approved invoices proceed to payment,Functional Flow,TS_PROC_01,TC_PROC_007,,Covered
+REQ_12,Concurrent approval handling,Requirement Gaps,TS_PROC_04,TC_PROC_005,DEF_008,Covered
+REQ_13,Resubmission after rejection,Requirement Gaps,TS_PROC_05,TC_UPL_009,,Covered (pending policy confirm)
+REQ_14,Email notifications on status change,Functional Flow,TS_NOTIF_01;TS_NOTIF_02;TS_NOTIF_03,TC_NOTIF_001;TC_NOTIF_002;TC_NOTIF_003,DEF_004,Covered
+REQ_15,Notification failure handling and retry,Requirement Gaps,TS_NOTIF_04,TC_NOTIF_004;TC_EDGE_004,,Covered
+REQ_16,Monthly reports for finance,Functional Flow,TS_RPT_01;TS_RPT_02,TC_RPT_001;TC_RPT_002;TC_RPT_003,DEF_007,Covered
+REQ_17,Reports respect role scope,User Roles,TS_RPT_01;TS_SEC_01,TC_RPT_004,,Covered
+REQ_18,Vendor-level data isolation,Risk Assessment,TS_SEC_01;TS_API_03,TC_API_006;TC_API_007;TC_SEC_002;TC_SEC_003;DB_005,DEF_003,Covered
+REQ_19,Audit log of approvals,Improvement Suggestions,TS_DATA_02,TC_PROC_008;DB_004,,Covered
+REQ_20,File upload security,Risk Assessment,TS_SEC_03,TC_SEC_006;TC_SEC_007,DEF_009,Covered
+REQ_21,Session timeout and token validity,Risk Assessment,TS_SEC_04,TC_AUTH_005;TC_SEC_005;TC_API_010,DEF_006,Covered
+REQ_22,Data integrity (status persistence and mapping),Data Validation,TS_DATA_01;TS_DATA_02,DB_001;DB_002;DB_003;DB_007;DB_008,,Covered

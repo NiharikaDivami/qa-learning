@@ -1,0 +1,12 @@
+Risk ID,Category,Risk,Likelihood,Impact,Risk Level,Mitigation,Linked Test IDs,Owner
+R_01,Business,Duplicate invoice submissions cause double payment,Medium,High,High,"Server-side uniqueness constraint on (vendor invoice_number); duplicate-detection at upload",TC_UPL_007;TC_EDGE_001;DB_006,QA + Backend
+R_02,Business,Incorrect approval moves invoice to payment,Medium,Critical,Critical,"State machine validation; two-eyes approval for amounts above threshold; audit log",TC_PROC_001;TC_PROC_006;DB_002;DB_004,QA + Finance
+R_03,Business,Reporting numbers diverge from ledger,Medium,High,High,"Reconciliation tests comparing report vs DB",TC_RPT_002;DB_008,Data
+R_04,Security,Unauthorized data access between vendors,Medium,Critical,Critical,"Vendor-scoped queries; authorization middleware; integration tests for cross-tenant access",TC_API_006;TC_API_007;TC_SEC_002;TC_SEC_003,Security
+R_05,Security,Role boundary violation (vendor performs AP action),Low,Critical,High,"Role checks at API layer; RBAC tests in CI",TC_PROC_004;TC_API_008;TC_SEC_001,Security
+R_06,Security,Malicious file upload,Medium,High,High,"Allowlist of mime types; content-type verification; malware scan",TC_SEC_006;TC_SEC_007,Security
+R_07,Security,Session reuse / weak session handling,Low,High,Medium,"Short-lived tokens; invalidate on logout; idle timeout",TC_AUTH_005;TC_AUTH_007;TC_SEC_005;TC_API_010,Security
+R_08,Operational,Notification failures hide invoice status from vendors,High,Medium,High,"Retry with backoff; failure logged for ops review",TC_NOTIF_004;TC_EDGE_004,DevOps
+R_09,Operational,Payment processing failure on approved invoices,Medium,Critical,Critical,"Reconciliation; alerting on failure",TC_PROC_007,Payments
+R_10,Data Integrity,Incorrect status transitions corrupt invoice lifecycle,Low,High,Medium,"Explicit state machine; reject invalid transitions at DB and API",TC_PROC_006;TC_PROC_007;DB_002;DB_003,Backend
+R_11,Resilience,Network interruption causes orphan invoice rows,Low,Medium,Low,"Transactional inserts; cleanup job for orphans",TC_EDGE_002,Backend
